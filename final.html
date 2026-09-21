@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL — COMPLETE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            font-family: monospace;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            opacity: 0;
+            animation: appear 4s ease forwards;
+        }
+
+        .title {
+            font-size: 42px;
+            letter-spacing: 8px;
+            margin-bottom: 35px;
+        }
+
+        .text {
+            font-size: 16px;
+            line-height: 2;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        .complete {
+            margin-top: 35px;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: 5px;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="title">
+            CONGRATULATIONS.
+        </div>
+
+        <div class="text">
+            You have completed PROJECT-NULL.<br><br>
+
+            17 puzzles.<br>
+            No shortcuts.<br>
+            You made it to the end.
+        </div>
+
+        <div class="complete">
+            WELL DONE.
+        </div>
+
+    </div>
+
+</body>
+</html>

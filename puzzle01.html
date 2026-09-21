@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 01</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #050505;
+            color: #d0d0d0;
+
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: min(760px, 92%);
+            padding: 42px;
+
+            background: #090909;
+            border: 1px solid #292929;
+
+            box-shadow: 0 0 45px rgba(255, 255, 255, 0.025);
+        }
+
+        .project {
+            color: #555;
+            font-size: 12px;
+            letter-spacing: 5px;
+            margin-bottom: 12px;
+        }
+
+        .node {
+            color: #777;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 35px;
+        }
+
+        h1 {
+            margin: 0;
+
+            color: #eee;
+            font-size: 34px;
+            letter-spacing: 9px;
+            font-weight: normal;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background: #222;
+            margin: 30px 0;
+        }
+
+        .text {
+            color: #999;
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .message {
+            margin-top: 25px;
+            padding: 22px;
+
+            background: #030303;
+            border: 1px solid #1d1d1d;
+
+            color: #cfcfcf;
+            line-height: 2.2;
+        }
+
+        .input-area {
+            margin-top: 35px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+
+            background: #000;
+            border: 1px solid #333;
+
+            color: #fff;
+            outline: none;
+
+            font-family: inherit;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 12px;
+            padding: 15px;
+
+            background: #101010;
+            border: 1px solid #444;
+
+            color: #ccc;
+
+            font-family: inherit;
+            letter-spacing: 2px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #181818;
+            border-color: #777;
+        }
+
+        #result {
+            min-height: 22px;
+            margin-top: 20px;
+
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .wrong {
+            color: #666;
+        }
+
+        .correct {
+            color: #ddd;
+        }
+
+        .footer {
+            margin-top: 40px;
+
+            color: #292929;
+            font-size: 10px;
+            text-align: center;
+
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="project">
+        PROJECT-NULL
+    </div>
+
+    <div class="node">
+        NODE 01
+    </div>
+
+    <h1>THE BEGINNING</h1>
+
+    <div class="line"></div>
+
+    <div class="text">
+        There is nothing hidden here.
+        <br>
+        Everything you need is already visible.
+        <br>
+        Do not search elsewhere.
+    </div>
+
+    <div class="message">
+
+        You are looking for an answer.
+        <br>
+        That is your first mistake.
+        <br><br>
+
+        Look again.
+
+    </div>
+
+    <div class="line"></div>
+
+    <div class="text">
+        What are you actually looking for?
+    </div>
+
+    <div class="input-area">
+
+        <input
+            id="answer"
+            type="text"
+            placeholder="ENTER ANSWER..."
+            autocomplete="off"
+            spellcheck="false"
+        >
+
+        <button onclick="checkAnswer()">
+            VERIFY
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <div class="footer">
+        THERE IS MORE THAN ONE WAY TO READ A PAGE
+    </div>
+
+</div>
+
+
+<!--
+    NULL IS NOT EMPTY.
+
+    01 14 19 23
+
+    - SYSTEM
+-->
+
+
+<script>
+
+function checkAnswer() {
+
+    const input = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result = document
+        .getElementById("result");
+
+    if (input === "ANSWER") {
+
+        result.className = "wrong";
+
+        result.textContent =
+            "> YOU FOUND THE WORD. NOT THE ANSWER.";
+
+        return;
+    }
+
+    if (input === "ABSENCE") {
+
+        result.className = "correct";
+
+        result.textContent =
+            "> ACCESS GRANTED. NODE 01 COMPLETE. FRAGMENT: A";
+
+        setTimeout(function () {
+
+            window.location.href =
+                "../02/puzzle02.html";
+
+        }, 1800);
+
+        return;
+    }
+
+    result.className = "wrong";
+
+    result.textContent =
+        "> ACCESS DENIED.";
+
+}
+
+document
+    .getElementById("answer")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

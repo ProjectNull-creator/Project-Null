@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 06</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #050505;
+            color: #d8d8d8;
+            font-family: "Courier New", monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 92%;
+            max-width: 900px;
+            padding: 42px;
+            background: #080808;
+            border: 1px solid #292929;
+            box-shadow: 0 0 45px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+            font-size: 28px;
+            letter-spacing: 6px;
+            color: #eee;
+        }
+
+        .text {
+            color: #888;
+            line-height: 1.9;
+        }
+
+        .numbers {
+            margin: 35px 0;
+            padding: 25px;
+            border: 1px solid #202020;
+            color: #666;
+            line-height: 2;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .warning {
+            color: #444;
+            font-size: 11px;
+            margin-top: 25px;
+        }
+
+        input {
+            width: 100%;
+            margin-top: 30px;
+            padding: 14px;
+            background: #050505;
+            border: 1px solid #333;
+            color: #eee;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 12px;
+            padding: 14px;
+            background: #101010;
+            border: 1px solid #444;
+            color: #ccc;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 65px;
+            margin-top: 25px;
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .fragment {
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 06
+    </div>
+
+    <h1>THIRTEEN</h1>
+
+    <div class="text">
+        Numbers are useful only when
+        you know what they are counting.
+    </div>
+
+    <div class="numbers">
+nothing here is arranged randomly
+every line contains more than it appears
+silence can also occupy a position
+counting is not the same as reading
+some things matter only by location
+there are no special characters here
+do not remove the spaces
+the beginning is rarely the beginning
+a repeated distance is still a distance
+nothing tells you where to look
+every answer creates another question
+you may already have passed it
+thirteen is enough
+    </div>
+
+    <div class="text">
+        You are not looking for a word.
+
+        <br><br>
+
+        You are looking for a position.
+    </div>
+
+    <div class="warning">
+        Some positions are more important than others.
+    </div>
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">VERIFY</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<!--
+
+    The first layer was never supposed to be the answer.
+
+    You found a position.
+
+    Now find what that position told you to find.
+
+    Do not search the visible text.
+
+    --------------------------------------------
+
+    READCOMMENT13
+
+    --------------------------------------------
+
+    The comment was a direction.
+
+    Find the only element whose data-index is 13.
+
+    Do not take its value.
+
+    Take what its value tells you to take.
+
+-->
+
+
+<div hidden>
+
+    <span data-index="01" data-value="ASH">.</span>
+    <span data-index="02" data-value="GLASS">.</span>
+    <span data-index="03" data-value="VOID">.</span>
+    <span data-index="04" data-value="NORTH">.</span>
+    <span data-index="05" data-value="ECHO">.</span>
+    <span data-index="06" data-value="BLACK">.</span>
+    <span data-index="07" data-value="STATIC">.</span>
+    <span data-index="08" data-value="MIRROR">.</span>
+    <span data-index="09" data-value="SILENCE">.</span>
+    <span data-index="10" data-value="ARCHIVE">.</span>
+    <span data-index="11" data-value="SIGNAL">.</span>
+    <span data-index="12" data-value="NOTHING">.</span>
+
+    <span
+        data-index="13"
+        data-value="SEVENTH"
+    >.</span>
+
+</div>
+
+
+<script>
+
+function verify() {
+
+    const input =
+        document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+        document
+        .getElementById("result");
+
+
+    /*
+        FALSE TRAIL 1
+    */
+
+    if (input === "THIRTEEN") {
+
+        result.innerHTML =
+            "> THE NUMBER IS CORRECT.<br>" +
+            "> THE ANSWER IS NOT.";
+
+        return;
+    }
+
+
+    /*
+        FALSE TRAIL 2
+    */
+
+    if (input === "13") {
+
+        result.innerHTML =
+            "> POSITION CONFIRMED.<br>" +
+            "> YOU HAVE NOT FOUND WHAT IT POINTS TO.";
+
+        return;
+    }
+
+
+    /*
+        FIRST LAYER
+    */
+
+    if (input === "READCOMMENT13") {
+
+        result.innerHTML =
+            "> THAT WAS A DIRECTION.<br>" +
+            "> NOT AN ANSWER.";
+
+        return;
+    }
+
+
+    /*
+        SECOND LAYER
+    */
+
+    if (input === "13TH") {
+
+        result.innerHTML =
+            "> CORRECT POSITION.<br>" +
+            "> WRONG INTERPRETATION.";
+
+        return;
+    }
+
+
+    /*
+        THIRD LAYER
+    */
+
+    if (input === "SEVENTH") {
+
+        result.innerHTML =
+            "> YOU FOUND THE INSTRUCTION.<br>" +
+            "> ONE STEP REMAINS.";
+
+        return;
+    }
+
+
+    /*
+        FINAL FRAGMENT
+    */
+
+    if (input === "T") {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 06 COMPLETE.<br><br>" +
+            '<span class="fragment">FRAGMENT: T</span>';
+
+        setTimeout(() => {
+            window.location.href = "../07/puzzle07.html";
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+
+}
+
+</script>
+
+</body>
+</html>

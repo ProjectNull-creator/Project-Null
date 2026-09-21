@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 08</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #050505;
+            color: #d8d8d8;
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 92%;
+            max-width: 900px;
+            padding: 42px;
+
+            background: #080808;
+            border: 1px solid #292929;
+
+            box-shadow: 0 0 45px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+
+            color: #eee;
+            font-size: 28px;
+            letter-spacing: 6px;
+        }
+
+        .text {
+            color: #888;
+            line-height: 1.9;
+        }
+
+        .image-box {
+            margin: 35px 0;
+            padding: 30px;
+
+            border: 1px solid #202020;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        svg {
+            width: 320px;
+            height: 320px;
+            image-rendering: pixelated;
+        }
+
+        .note {
+            color: #444;
+            font-size: 11px;
+            margin-top: 25px;
+        }
+
+        input {
+            width: 100%;
+            margin-top: 30px;
+
+            padding: 14px;
+
+            background: #050505;
+            border: 1px solid #333;
+
+            color: #eee;
+            font-family: inherit;
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 12px;
+
+            padding: 14px;
+
+            background: #101010;
+            border: 1px solid #444;
+
+            color: #ccc;
+            font-family: inherit;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 70px;
+            margin-top: 25px;
+
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .fragment {
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 08
+    </div>
+
+    <h1>THE IMAGE</h1>
+
+    <div class="text">
+
+        An image does not have to contain words
+        to contain information.
+
+        <br><br>
+
+        Sometimes the image is the message.
+
+    </div>
+
+
+    <div class="image-box">
+
+        <svg
+            id="image"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <rect
+                width="16"
+                height="16"
+                fill="#080808"
+            />
+
+            <!-- frame -->
+
+            <path
+                d="M1 1H15 M1 1V15 M15 1V15 M1 15H15"
+                stroke="#222"
+                fill="none"
+            />
+
+            <!-- background structure -->
+
+            <path
+                d="M2 8H14 M8 2V14"
+                stroke="#111"
+            />
+
+            <rect x="3" y="3" width="1" height="1" fill="#333"/>
+            <rect x="12" y="3" width="1" height="1" fill="#333"/>
+            <rect x="3" y="12" width="1" height="1" fill="#333"/>
+            <rect x="12" y="12" width="1" height="1" fill="#333"/>
+
+            <!-- eight anomalous points -->
+
+            <rect
+                class="anomaly"
+                x="1"
+                y="2"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+            <rect
+                class="anomaly"
+                x="14"
+                y="1"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+            <rect
+                class="anomaly"
+                x="11"
+                y="10"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+            <rect
+                class="anomaly"
+                x="8"
+                y="6"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+            <rect
+                class="anomaly"
+                x="9"
+                y="11"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+            <rect
+                class="anomaly"
+                x="2"
+                y="14"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+            <rect
+                class="anomaly"
+                x="4"
+                y="5"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+            <rect
+                class="anomaly"
+                x="11"
+                y="13"
+                width="1"
+                height="1"
+                fill="#777"
+            />
+
+
+            <!-- visual distraction -->
+
+            <rect
+                x="7"
+                y="7"
+                width="2"
+                height="2"
+                fill="#444"
+            />
+
+            <rect x="6" y="8" width="1" height="1" fill="#333"/>
+            <rect x="9" y="8" width="1" height="1" fill="#333"/>
+            <rect x="8" y="6" width="1" height="1" fill="#333"/>
+            <rect x="8" y="9" width="1" height="1" fill="#333"/>
+
+        </svg>
+
+    </div>
+
+
+    <div class="text">
+
+        Nothing appears to be hidden.
+
+        <br><br>
+
+        That should worry you.
+
+    </div>
+
+
+    <div class="note">
+        16 × 16
+    </div>
+
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">VERIFY</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<!--
+
+    The image is 16 × 16.
+
+    Eight points do not belong to its obvious structure.
+
+    Everything else is noise.
+
+-->
+
+
+<script>
+
+function getAnomalies() {
+
+    return Array.from(
+        document.querySelectorAll(".anomaly")
+    );
+
+}
+
+
+function getCoordinateMessage() {
+
+    const points = getAnomalies();
+
+    const values = points.map(point => {
+
+        const x = Number(point.getAttribute("x"));
+        const y = Number(point.getAttribute("y"));
+
+        return x + y;
+
+    });
+
+    return values;
+
+}
+
+
+function numbersToLetters(numbers) {
+
+    return numbers
+        .map(number =>
+            String.fromCharCode(64 + number)
+        )
+        .join("");
+
+}
+
+
+function getBinary() {
+
+    const points = getAnomalies();
+
+    /*
+        Second order:
+        top → bottom.
+
+        X coordinate:
+        even = 0
+        odd  = 1
+    */
+
+    points.sort((a, b) => {
+
+        const ay = Number(a.getAttribute("y"));
+        const by = Number(b.getAttribute("y"));
+
+        return ay - by;
+
+    });
+
+    return points
+        .map(point => {
+
+            const x =
+                Number(point.getAttribute("x"));
+
+            return x % 2 === 0 ? "0" : "1";
+
+        })
+        .join("");
+
+}
+
+
+function getFragment() {
+
+    const binary = getBinary();
+
+    const decimal =
+        parseInt(binary, 2);
+
+    return String.fromCharCode(decimal);
+
+}
+
+
+function verify() {
+
+    const input =
+        document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+        document
+        .getElementById("result");
+
+
+    const coordinateValues =
+        getCoordinateMessage();
+
+    const coordinateMessage =
+        numbersToLetters(
+            coordinateValues
+        );
+
+    const fragment =
+        getFragment();
+
+
+    /*
+        FALSE TRAIL
+    */
+
+    if (input === "IMAGE") {
+
+        result.innerHTML =
+            "> THE IMAGE IS ONLY THE CONTAINER.";
+
+        return;
+    }
+
+
+    /*
+        FIRST DISCOVERY
+    */
+
+    if (input === "COORDINATES") {
+
+        result.innerHTML =
+            "> POSITIONS FOUND.<br>" +
+            "> POSITIONS ARE NOT THE MESSAGE.";
+
+        return;
+    }
+
+
+    /*
+        SECOND DISCOVERY
+    */
+
+    if (input === coordinateMessage) {
+
+        if (coordinateMessage === "COUNTPIX") {
+
+            result.innerHTML =
+                "> INSTRUCTION ACCEPTED.<br>" +
+                "> THE IMAGE HAS ALREADY TOLD YOU ITS SIZE.";
+
+        } else {
+
+            result.innerHTML =
+                "> SOMETHING IS WRONG.<br>" +
+                "> CHECK THE ORDER.";
+
+        }
+
+        return;
+    }
+
+
+    /*
+        FALSE TRAIL
+    */
+
+    if (input === "COUNTPIX") {
+
+        result.innerHTML =
+            "> YOU FOUND THE INSTRUCTION.<br>" +
+            "> NOW FOLLOW IT.";
+
+        return;
+    }
+
+
+    /*
+        DIMENSIONS
+    */
+
+    if (input === "256") {
+
+        result.innerHTML =
+            "> 256.<br>" +
+            "> THAT NUMBER IS NOT FINISHED.";
+
+        return;
+    }
+
+
+    /*
+        POWER OF TWO
+    */
+
+    if (
+        input === "2^8" ||
+        input === "2⁸"
+    ) {
+
+        result.innerHTML =
+            "> EIGHT BITS.<br>" +
+            "> YOU HAVE EIGHT THINGS.";
+
+        return;
+    }
+
+
+    /*
+        FALSE TRAILS
+    */
+
+    if (input === "EIGHT") {
+
+        result.innerHTML =
+            "> COUNTING IS EASY.<br>" +
+            "> ORDERING IS NOT.";
+
+        return;
+    }
+
+
+    if (input === "ORDER") {
+
+        result.innerHTML =
+            "> THERE IS AN ORDER.<br>" +
+            "> YOU HAVE NOT FOUND IT.";
+
+        return;
+    }
+
+
+    /*
+        BINARY INTERMEDIATE
+    */
+
+    if (input === "01001110") {
+
+        result.innerHTML =
+            "> BINARY CONFIRMED.<br>" +
+            "> NUMBERS ARE NOT THE FINAL LANGUAGE.";
+
+        return;
+    }
+
+
+    /*
+        FINAL
+    */
+
+    if (input === "FRAGMENT") {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 08 COMPLETE.<br><br>" +
+            '<span class="fragment">FRAGMENT: ' +
+            fragment +
+            '</span>';
+
+        setTimeout(() => {
+
+            window.location.href =
+                "../09/puzzle09.html";
+
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+
+}
+
+</script>
+
+</body>
+</html>

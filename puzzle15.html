@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL — 15</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #ccc;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            letter-spacing: 8px;
+        }
+
+        .text {
+            margin: 50px 0;
+            font-size: 24px;
+            line-height: 2.5;
+            letter-spacing: 5px;
+        }
+
+        .hint {
+            color: #555;
+            line-height: 2;
+            margin-bottom: 40px;
+        }
+
+        input {
+            background: #080808;
+            border: 1px solid #555;
+            color: #fff;
+            padding: 12px;
+            width: 250px;
+            font-family: monospace;
+            outline: none;
+        }
+
+        button {
+            background: #080808;
+            color: #aaa;
+            border: 1px solid #555;
+            padding: 12px 20px;
+            font-family: monospace;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border-color: #aaa;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--
+    Do not read the words.
+    Read what changes.
+
+    7 1 14 7 5
+
+    Something is missing.
+-->
+
+<div class="container">
+
+    <h1>PROJECT-NULL</h1>
+
+    <p>PUZZLE 15</p>
+
+    <div class="text">
+        FORWARD:<br>
+        <strong>CHANGE</strong>
+        <br><br>
+        BACKWARD:<br>
+        <strong>GANGE</strong>
+    </div>
+
+    <div class="hint">
+        IT LOOKS THE SAME.<br>
+        BUT IT IS NOT.
+    </div>
+
+    <input
+        type="text"
+        id="answer"
+        placeholder="ENTER ANSWER"
+        autocomplete="off"
+    >
+
+    <button onclick="checkAnswer()">SUBMIT</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function checkAnswer() {
+
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (answer === "CHANGE") {
+
+        document.getElementById("result").textContent =
+            "ACCESS GRANTED";
+
+        setTimeout(() => {
+            window.location.href = "../16/puzzle16.html";
+        }, 1000);
+
+    } else {
+
+        document.getElementById("result").textContent =
+            "ACCESS DENIED";
+    }
+}
+
+</script>
+
+</body>
+</html>

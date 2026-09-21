@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 03</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #050505;
+            color: #d8d8d8;
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 90%;
+            max-width: 820px;
+            padding: 40px;
+
+            background: #080808;
+            border: 1px solid #292929;
+
+            box-shadow: 0 0 40px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+            color: #eee;
+            font-size: 28px;
+            letter-spacing: 5px;
+        }
+
+        .text {
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .cipher {
+            margin: 35px 0;
+            padding: 20px;
+
+            border-left: 2px solid #444;
+
+            color: #eee;
+            line-height: 1.8;
+            word-break: break-word;
+        }
+
+        input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+
+            background: #050505;
+            border: 1px solid #333;
+
+            color: #eee;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 12px;
+            padding: 14px;
+
+            background: #101010;
+            border: 1px solid #444;
+
+            color: #ccc;
+            font-family: inherit;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 50px;
+            margin-top: 25px;
+
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .fragment {
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 03
+    </div>
+
+    <h1>THE WRONG PAGE</h1>
+
+    <div class="text">
+        You should not be here.
+        <br><br>
+
+        But you are.
+        <br><br>
+
+        There is a door.
+        <br>
+        There is a key.
+        <br>
+        There is no lock.
+    </div>
+
+    <div class="cipher">
+        KXQYIY GYVYQFJZ
+    </div>
+
+    <div class="text">
+        The answer is somewhere you have already been.
+    </div>
+
+    <br>
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">VERIFY</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<!--
+
+    THE KEY IS NOT WRITTEN HERE.
+
+    YOU HAVE ALREADY BEEN GIVEN IT.
+
+    NODE 01
+
+    --------------------------------
+
+    DO NOT USE THE FRAGMENT.
+
+    USE WHAT THE FRAGMENT CAME FROM.
+
+    --------------------------------
+
+    VIGENERE
+
+    --------------------------------
+
+    KXQYIY GYVYQFJZ
+
+-->
+
+
+<script>
+
+/*
+==========================================================
+NODE 03
+==========================================================
+
+Cipher:
+
+KXQYIY GYVYQFJZ
+
+Key:
+
+ABSENCE
+
+Vigenere decryption:
+
+LOOKATTHEADDRESS
+
+The spaces are intentionally removed from the ciphertext
+so that the player has to recognize the resulting phrase.
+*/
+
+
+function verify() {
+
+    const input =
+        document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+        document.getElementById("result");
+
+
+    /*
+    The obvious ciphertext itself.
+    */
+
+    if (input === "KXQYIY GYVYQFJZ") {
+
+        result.innerHTML =
+            "> THAT IS THE CIPHERTEXT.<br>" +
+            "> NOT THE ANSWER.";
+
+        return;
+    }
+
+
+    /*
+    The previous-node answer.
+    */
+
+    if (input === "ABSENCE") {
+
+        result.innerHTML =
+            "> THE KEY OPENS NOTHING.<br>" +
+            "> IT ONLY REVEALS WHAT WAS ALREADY THERE.";
+
+        return;
+    }
+
+
+    /*
+    Vigenere result.
+    */
+
+    if (
+        input === "LOOK AT THE ADDRESS" ||
+        input === "LOOKATTHEADDRESS"
+    ) {
+
+        result.innerHTML =
+            "> CORRECT.<br>" +
+            "> YOU KNOW WHERE TO LOOK.<br>" +
+            "> NOT WHAT TO LOOK FOR.";
+
+        return;
+    }
+
+
+    /*
+    This is deliberately NOT the final answer.
+    */
+
+    if (input === "ADDRESS") {
+
+        result.innerHTML =
+            "> TOO LITTLE.<br>" +
+            "> THE MESSAGE WAS MORE SPECIFIC.";
+
+        return;
+    }
+
+
+    /*
+    Actual continuation.
+
+    The player should inspect the current URL and notice:
+
+        ?wrong=true
+
+    This sends them to wrong.html.
+    */
+
+    if (input === "WRONG") {
+
+        result.innerHTML =
+            "> YOU FOUND THE WRONG PAGE.<br>" +
+            "> THAT IS EXACTLY WHERE YOU WERE SUPPOSED TO GO.";
+
+        return;
+    }
+
+
+    /*
+    NODE 03 final fragment.
+    */
+
+    if (input === "DOOR") {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 03 COMPLETE.<br><br>" +
+            '<span class="fragment">FRAGMENT: D</span>';
+
+        setTimeout(() => {
+            window.location.href = "../04/puzzle04.html";
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+
+}
+
+</script>
+
+</body>
+</html>

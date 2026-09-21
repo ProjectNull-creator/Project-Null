@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL — 12</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #ccc;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 120px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            letter-spacing: 8px;
+        }
+
+        .cipher {
+            margin: 50px 0;
+            font-size: 24px;
+            line-height: 2;
+        }
+
+        .hint {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        input {
+            background: #080808;
+            border: 1px solid #555;
+            color: #fff;
+            padding: 12px;
+            width: 250px;
+            font-family: monospace;
+            outline: none;
+        }
+
+        button {
+            background: #080808;
+            color: #aaa;
+            border: 1px solid #555;
+            padding: 12px 20px;
+            font-family: monospace;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border-color: #aaa;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--
+    The spaces matter.
+    Read what remains.
+
+    01001110 01010101 01001100 01001100
+
+    01001110 = N
+    01010101 = U
+    01001100 = L
+    01001100 = L
+-->
+
+<div class="container">
+
+    <h1>PROJECT-NULL</h1>
+
+    <p>PUZZLE 12</p>
+
+    <div class="cipher">
+        01001110&nbsp;&nbsp;01010101&nbsp;01001100&nbsp;&nbsp;01001100
+    </div>
+
+    <div class="hint">
+        NOT EVERYTHING THAT IS PRESENT<br>
+        IS MEANT TO BE READ.
+    </div>
+
+    <input
+        type="text"
+        id="answer"
+        placeholder="ENTER ANSWER"
+        autocomplete="off"
+    >
+
+    <button onclick="checkAnswer()">SUBMIT</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function checkAnswer() {
+
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (answer === "NULL") {
+
+        document.getElementById("result").textContent =
+            "ACCESS GRANTED";
+
+        setTimeout(() => {
+            window.location.href = "../13/puzzle13.html";
+        }, 1000);
+
+    } else {
+
+        document.getElementById("result").textContent =
+            "ACCESS DENIED";
+    }
+}
+
+</script>
+
+</body>
+</html>

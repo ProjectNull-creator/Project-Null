@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 10</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #050505;
+            color: #d8d8d8;
+
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 92%;
+            max-width: 900px;
+
+            padding: 42px;
+
+            background: #080808;
+            border: 1px solid #292929;
+
+            box-shadow:
+                0 0 45px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+
+            color: #eee;
+
+            font-size: 28px;
+            letter-spacing: 6px;
+        }
+
+        .text {
+            color: #888;
+            line-height: 1.9;
+        }
+
+        .archive {
+            margin: 35px 0;
+
+            border: 1px solid #202020;
+        }
+
+        .header,
+        .entry {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                110px
+                200px;
+
+            align-items: center;
+        }
+
+        .header {
+            padding: 12px 16px;
+
+            color: #444;
+
+            font-size: 10px;
+            letter-spacing: 1px;
+
+            border-bottom: 1px solid #222;
+        }
+
+        .entry {
+            padding: 18px 16px;
+
+            color: #777;
+
+            border-bottom: 1px solid #171717;
+
+            transition: 0.15s;
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+        }
+
+        .entry:hover {
+            background: #0d0d0d;
+            color: #aaa;
+        }
+
+        .word {
+            letter-spacing: 2px;
+        }
+
+        .size {
+            color: #555;
+            text-align: right;
+        }
+
+        time {
+            color: #444;
+
+            text-align: right;
+
+            font-size: 11px;
+        }
+
+        .status {
+            margin-top: 25px;
+
+            color: #333;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        input {
+            width: 100%;
+
+            margin-top: 30px;
+            padding: 14px;
+
+            background: #050505;
+
+            border: 1px solid #333;
+
+            color: #eee;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 12px;
+            padding: 14px;
+
+            background: #101010;
+
+            border: 1px solid #444;
+
+            color: #ccc;
+
+            font-family: inherit;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 80px;
+
+            margin-top: 25px;
+
+            color: #777;
+
+            line-height: 1.7;
+        }
+
+        .fragment {
+            color: #ddd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 10
+    </div>
+
+    <h1>NOTHING</h1>
+
+    <div class="text">
+
+        There is nothing here.
+
+        <br><br>
+
+        Nothing unusual.
+
+        <br><br>
+
+        Nothing missing.
+
+        <br><br>
+
+        Probably.
+
+    </div>
+
+
+    <div class="archive">
+
+        <div class="header">
+            <div>ENTRY</div>
+            <div>SIZE</div>
+            <div>MODIFIED</div>
+        </div>
+
+
+        <!--
+            Some things are incomplete
+            without being broken.
+        -->
+
+
+        <div class="entry"
+             data-index="7">
+
+            <div class="word">
+                ETADATA
+            </div>
+
+            <div class="size">
+                19 KB
+            </div>
+
+            <time datetime="2026-01-01T01:01:12">
+                01:01:12
+            </time>
+
+        </div>
+
+
+        <div class="entry"
+             data-index="2">
+
+            <div class="word">
+                MPIRE
+            </div>
+
+            <div class="size">
+                14 KB
+            </div>
+
+            <time datetime="2026-01-02T01:01:01">
+                01:01:01
+            </time>
+
+        </div>
+
+
+        <div class="entry"
+             data-index="5">
+
+            <div class="word">
+                RAFT
+            </div>
+
+            <div class="size">
+                18 KB
+            </div>
+
+            <time datetime="2026-01-03T11:05:03">
+                11:05:03
+            </time>
+
+        </div>
+
+
+        <div class="entry"
+             data-index="1">
+
+            <div class="word">
+                OTHER
+            </div>
+
+            <div class="size">
+                15 KB
+            </div>
+
+            <time datetime="2026-01-04T20:04:06">
+                20:04:06
+            </time>
+
+        </div>
+
+
+        <div class="entry"
+             data-index="8">
+
+            <div class="word">
+                RISE
+            </div>
+
+            <div class="size">
+                21 KB
+            </div>
+
+            <time datetime="2026-01-05T08:18:18">
+                08:18:18
+            </time>
+
+        </div>
+
+
+        <div class="entry"
+             data-index="6">
+
+            <div class="word">
+                LIBI
+            </div>
+
+            <div class="size">
+                16 KB
+            </div>
+
+            <time datetime="2026-01-06T03:08:01">
+                03:08:01
+            </time>
+
+        </div>
+
+
+        <div class="entry"
+             data-index="3">
+
+            <div class="word">
+                ERRA
+            </div>
+
+            <div class="size">
+                12 KB
+            </div>
+
+            <time datetime="2026-01-07T15:11:09">
+                15:11:09
+            </time>
+
+        </div>
+
+
+        <div class="entry"
+             data-index="4">
+
+            <div class="word">
+                HEAD
+            </div>
+
+            <div class="size">
+                13 KB
+            </div>
+
+            <time datetime="2026-01-08T05:20:20">
+                05:20:20
+            </time>
+
+        </div>
+
+    </div>
+
+
+    <div class="status">
+        ARCHIVE STATUS: INTACT
+    </div>
+
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">
+        VERIFY
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<!--
+
+    Nothing is missing.
+
+    Some things were never complete.
+
+    There is a difference.
+
+-->
+
+
+<script>
+
+function getEntries() {
+
+    return Array.from(
+        document.querySelectorAll(".entry")
+    );
+
+}
+
+
+/*
+    The visible words are fragments.
+
+    Restoring them is the first layer.
+*/
+
+function getRestoredWords() {
+
+    const entries = getEntries();
+
+    return entries.map(entry => {
+
+        const fragment =
+            entry
+                .querySelector(".word")
+                .textContent
+                .trim();
+
+        return fragment;
+
+    });
+
+}
+
+
+/*
+    The missing letters, in visual order,
+    form the first instruction.
+*/
+
+function getMissingMessage() {
+
+    return "METADATA";
+
+}
+
+
+/*
+    Metadata provides the real order.
+*/
+
+function getOrderedEntries() {
+
+    return getEntries().sort((a, b) => {
+
+        return Number(a.dataset.index)
+             - Number(b.dataset.index);
+
+    });
+
+}
+
+
+/*
+    The completed words are:
+
+    OTHER
+    EMPIRE
+    TERRA
+    AHEAD
+    DRAFT
+    ALIBI
+    TEAM
+    ARISE
+*/
+
+function getCompletedWords() {
+
+    return [
+        "MOTHER",
+        "EMPIRE",
+        "TERRA",
+        "AHEAD",
+        "DRAFT",
+        "ALIBI",
+        "TEAM",
+        "ARISE"
+    ];
+
+}
+
+
+/*
+    Last characters in metadata order.
+*/
+
+function getReadInstruction() {
+
+    const words =
+        getCompletedWords();
+
+    return words
+        .map(word => word.charAt(word.length - 1))
+        .join("");
+
+}
+
+
+/*
+    The time contains two separate channels.
+
+    Minutes:
+    TAKECHAR
+
+    Seconds:
+    LASTCHAR
+*/
+
+function getTimeInstruction() {
+
+    const entries =
+        getOrderedEntries();
+
+    const minutes =
+        entries.map(entry => {
+
+            const value =
+                entry
+                .querySelector("time")
+                .getAttribute("datetime");
+
+            return new Date(value).getMinutes();
+
+        });
+
+
+    const seconds =
+        entries.map(entry => {
+
+            const value =
+                entry
+                .querySelector("time")
+                .getAttribute("datetime");
+
+            return new Date(value).getSeconds();
+
+        });
+
+
+    return {
+        minutes,
+        seconds
+    };
+
+}
+
+
+function numbersToLetters(numbers) {
+
+    return numbers
+        .map(number =>
+            String.fromCharCode(64 + number)
+        )
+        .join("");
+
+}
+
+
+function getFragment() {
+
+    const instruction =
+        getReadInstruction();
+
+    return instruction.charAt(
+        instruction.length - 1
+    );
+
+}
+
+
+function verify() {
+
+    const input =
+        document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+        document
+        .getElementById("result");
+
+
+    /*
+        FALSE TRAILS
+    */
+
+    if (input === "NOTHING") {
+
+        result.innerHTML =
+            "> NOTHING IS THE TITLE.<br>" +
+            "> NOT THE ANSWER.";
+
+        return;
+    }
+
+
+    if (input === "ABSENCE") {
+
+        result.innerHTML =
+            "> ABSENCE IS PRESENT.<br>" +
+            "> THAT IS NOT ENOUGH.";
+
+        return;
+    }
+
+
+    /*
+        FIRST LAYER
+    */
+
+    if (input === "METADATA") {
+
+        result.innerHTML =
+            "> METADATA ACCEPTED.<br>" +
+            "> LOOK AT WHAT THE PAGE KNOWS ABOUT ITSELF.";
+
+        return;
+    }
+
+
+    /*
+        SECOND LAYER
+    */
+
+    if (input === "INDEX") {
+
+        result.innerHTML =
+            "> INDEX FOUND.<br>" +
+            "> THE VISIBLE ORDER IS FALSE.";
+
+        return;
+    }
+
+
+    /*
+        THIRD LAYER
+    */
+
+    if (input === "READTIME") {
+
+        result.innerHTML =
+            "> CORRECT.<br>" +
+            "> THE WORDS WERE NEVER THE ANSWER.<br>" +
+            "> THEY WERE AN INSTRUCTION.";
+
+        return;
+    }
+
+
+    /*
+        TIME LAYERS
+    */
+
+    if (input === "TAKECHAR") {
+
+        result.innerHTML =
+            "> MINUTES ACCEPTED.<br>" +
+            "> ANOTHER CHANNEL REMAINS.";
+
+        return;
+    }
+
+
+    if (input === "LASTCHAR") {
+
+        result.innerHTML =
+            "> SECONDS ACCEPTED.<br>" +
+            "> NOW APPLY BOTH INSTRUCTIONS.";
+
+        return;
+    }
+
+
+    /*
+        FINAL
+    */
+
+    const fragment =
+        getFragment();
+
+
+    if (input === fragment) {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 10 COMPLETE.<br><br>" +
+            '<span class="fragment">' +
+            'FRAGMENT: ' +
+            fragment +
+            '</span>';
+
+        setTimeout(() => {
+
+            window.location.href =
+                "../11/puzzle11.html";
+
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+
+}
+
+</script>
+
+</body>
+</html>
+   

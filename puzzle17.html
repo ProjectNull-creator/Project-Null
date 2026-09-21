@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL — 17</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+            background: #000;
+            color: #fff;
+            font-family: monospace;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .number {
+            color: #555;
+            font-size: 14px;
+            letter-spacing: 5px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 30px;
+            letter-spacing: 8px;
+            font-weight: normal;
+            margin-bottom: 45px;
+        }
+
+        .text {
+            color: #888;
+            font-size: 15px;
+            line-height: 2;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+        }
+
+        .hint {
+            color: #555;
+            font-size: 13px;
+            line-height: 2;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+        }
+
+        input {
+            width: 100%;
+            max-width: 430px;
+            padding: 14px;
+
+            background: #050505;
+            border: 1px solid #444;
+            color: #fff;
+
+            font-family: monospace;
+            font-size: 17px;
+            letter-spacing: 4px;
+            text-align: center;
+
+            outline: none;
+            text-transform: uppercase;
+        }
+
+        input:focus {
+            border-color: #aaa;
+        }
+
+        button {
+            margin-top: 18px;
+            padding: 12px 35px;
+
+            background: #000;
+            border: 1px solid #444;
+            color: #aaa;
+
+            font-family: monospace;
+            letter-spacing: 2px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            border-color: #aaa;
+            color: #fff;
+        }
+
+        #message {
+            margin-top: 25px;
+            min-height: 20px;
+            color: #666;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="number">
+        17 / 17
+    </div>
+
+    <h1>THE END</h1>
+
+    <div class="text">
+        THE END IS NOT FOUND IN THE LAST.<br>
+        IT BEGINS AT THE BEGINNING.
+    </div>
+
+    <div class="hint">
+        EIGHT PIECES WERE LEFT BEHIND.<br>
+        THEY WERE NEVER MEANT TO BE READ ALONE.<br><br>
+
+        FIND THEM.<br>
+        ORDER THEM.<br>
+        ENTER WHAT THEY BECOME.
+    </div>
+
+    <input
+        type="text"
+        id="answer"
+        autocomplete="off"
+        placeholder="ENTER THE RESULT"
+    >
+
+    <br>
+
+    <button onclick="checkAnswer()">
+        SUBMIT
+    </button>
+
+    <div id="message"></div>
+
+</div>
+
+<script>
+
+    /*
+        FINAL ANSWER
+
+        The first eight fragments are:
+
+        1 — A
+        2 — N
+        3 — D
+        4 — E
+        5 — R
+        6 — T
+        7 — E
+        8 — N
+
+        Result:
+        ANDERTEN
+    */
+
+    const FINAL_ANSWER = "ANDERTEN";
+
+    function checkAnswer() {
+
+        const input = document.getElementById("answer");
+        const message = document.getElementById("message");
+
+        const answer = input.value
+            .trim()
+            .toUpperCase();
+
+        if (answer === FINAL_ANSWER) {
+
+            message.textContent = "ACCESS GRANTED.";
+
+            input.disabled = true;
+
+            setTimeout(() => {
+                window.location.href = "../final.html";
+            }, 1500);
+
+        } else {
+
+            message.textContent = "WRONG.";
+
+            input.value = "";
+            input.focus();
+        }
+    }
+
+    document.getElementById("answer").addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

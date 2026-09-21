@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PROJECT-NULL — 11</title>
+
+    <style>
+        body {
+            background: #000;
+            color: #ccc;
+            font-family: monospace;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .box {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .cipher {
+            font-size: 30px;
+            letter-spacing: 7px;
+            margin: 45px 0;
+        }
+
+        input {
+            background: #111;
+            border: 1px solid #555;
+            color: white;
+            padding: 12px;
+            width: 260px;
+            font-family: monospace;
+        }
+
+        button {
+            background: #111;
+            border: 1px solid #777;
+            color: white;
+            padding: 12px 20px;
+            margin-left: 5px;
+            font-family: monospace;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 19 -->
+
+<div class="box">
+
+    <h1>PROJECT-NULL</h1>
+    <p>PUZZLE 11</p>
+
+    <div class="cipher">
+        MAX TGLPXK
+    </div>
+
+    <p>
+        THE KEY IS NOT A WORD.<br>
+        IT IS A NUMBER.
+    </p>
+
+    <input id="answer" type="text" placeholder="ENTER ANSWER">
+    <button onclick="checkAnswer()">SUBMIT</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function checkAnswer() {
+
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (answer === "THE ANSWER") {
+
+        document.getElementById("result").innerHTML =
+            "ACCESS GRANTED";
+
+        setTimeout(() => {
+            window.location.href = "../12/puzzle12.html";
+        }, 1000);
+
+    } else {
+
+        document.getElementById("result").innerHTML =
+            "ACCESS DENIED";
+
+    }
+}
+
+</script>
+
+</body>
+</html>

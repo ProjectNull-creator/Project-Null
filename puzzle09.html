@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 09</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #050505;
+            color: #d8d8d8;
+
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 92%;
+            max-width: 950px;
+
+            padding: 42px;
+
+            background: #080808;
+            border: 1px solid #292929;
+
+            box-shadow:
+                0 0 45px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+
+            color: #eee;
+
+            font-size: 28px;
+            letter-spacing: 6px;
+        }
+
+        .text {
+            color: #888;
+            line-height: 1.9;
+        }
+
+        .archive {
+            margin: 35px 0;
+
+            border: 1px solid #222;
+        }
+
+        .archive-header,
+        .file {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                100px
+                190px;
+
+            align-items: center;
+        }
+
+        .archive-header {
+            padding: 12px 16px;
+
+            color: #555;
+            font-size: 11px;
+
+            border-bottom: 1px solid #222;
+        }
+
+        .file {
+            position: relative;
+
+            padding: 17px 16px;
+
+            color: #999;
+
+            border-bottom: 1px solid #161616;
+
+            transition: 0.15s;
+        }
+
+        .file:last-child {
+            border-bottom: none;
+        }
+
+        .file:hover {
+            background: #0d0d0d;
+            color: #ddd;
+        }
+
+        .filename {
+            letter-spacing: 1px;
+        }
+
+        .size {
+            color: #666;
+            text-align: right;
+        }
+
+        .date {
+            color: #444;
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .status {
+            margin-top: 25px;
+
+            color: #444;
+
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+
+            margin-top: 30px;
+            padding: 14px;
+
+            background: #050505;
+
+            border: 1px solid #333;
+
+            color: #eee;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 12px;
+            padding: 14px;
+
+            background: #101010;
+
+            border: 1px solid #444;
+
+            color: #ccc;
+
+            font-family: inherit;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 75px;
+
+            margin-top: 25px;
+
+            color: #777;
+
+            line-height: 1.7;
+        }
+
+        .fragment {
+            color: #ddd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 09
+    </div>
+
+    <h1>ARCHIVE</h1>
+
+    <div class="text">
+
+        Everything here has already been archived.
+
+        <br><br>
+
+        Nothing should be missing.
+
+        <br><br>
+
+        That does not mean everything
+        is where it belongs.
+
+    </div>
+
+
+    <div class="archive">
+
+        <div class="archive-header">
+            <div>NAME</div>
+            <div>SIZE</div>
+            <div>MODIFIED</div>
+        </div>
+
+
+        <!--
+            Do not assume the order is meaningful.
+        -->
+
+
+        <div class="file"
+             data-entry="f">
+
+            <div class="filename">
+                FOLDER
+            </div>
+
+            <div class="size">
+                4 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-01T04:17:31">
+                2026-04-01
+            </time>
+
+        </div>
+
+
+        <div class="file"
+             data-entry="i">
+
+            <div class="filename">
+                INDEX
+            </div>
+
+            <div class="size">
+                1 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-02T01:42:09">
+                2026-04-02
+            </time>
+
+        </div>
+
+
+        <div class="file"
+             data-entry="l">
+
+            <div class="filename">
+                LOCK
+            </div>
+
+            <div class="size">
+                20 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-03T20:03:44">
+                2026-04-03
+            </time>
+
+        </div>
+
+
+        <div class="file"
+             data-entry="e">
+
+            <div class="filename">
+                ENTRY
+            </div>
+
+            <div class="size">
+                5 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-04T05:26:18">
+                2026-04-04
+            </time>
+
+        </div>
+
+
+        <div class="file"
+             data-entry="n">
+
+            <div class="filename">
+                NULL
+            </div>
+
+            <div class="size">
+                20 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-05T20:51:02">
+                2026-04-05
+            </time>
+
+        </div>
+
+
+        <div class="file"
+             data-entry="a">
+
+            <div class="filename">
+                ARCH
+            </div>
+
+            <div class="size">
+                9 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-06T09:14:37">
+                2026-04-06
+            </time>
+
+        </div>
+
+
+        <div class="file"
+             data-entry="m">
+
+            <div class="filename">
+                MAP
+            </div>
+
+            <div class="size">
+                13 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-07T13:29:55">
+                2026-04-07
+            </time>
+
+        </div>
+
+
+        <div class="file"
+             data-entry="e2">
+
+            <div class="filename">
+                END
+            </div>
+
+            <div class="size">
+                5 KB
+            </div>
+
+            <time
+                class="date"
+                datetime="2026-04-08T05:08:21">
+                2026-04-08
+            </time>
+
+        </div>
+
+    </div>
+
+
+    <div class="status">
+        ARCHIVE STATUS: INTACT
+    </div>
+
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">
+        VERIFY
+    </button>
+
+
+    <div id="result"></div>
+
+</div>
+
+
+<!--
+
+    Some information is visible.
+
+    Some information is merely present.
+
+    Those are not necessarily the same thing.
+
+-->
+
+
+<script>
+
+function getSizes() {
+
+    const files =
+        document.querySelectorAll(".file");
+
+    return Array.from(files).map(file => {
+
+        const text =
+            file.querySelector(".size")
+                .textContent
+                .trim();
+
+        return parseInt(text);
+
+    });
+
+}
+
+
+function numbersToLetters(numbers) {
+
+    return numbers.map(number => {
+
+        return String.fromCharCode(
+            64 + number
+        );
+
+    }).join("");
+
+}
+
+
+function getChronologicalFiles() {
+
+    const files =
+        Array.from(
+            document.querySelectorAll(".file")
+        );
+
+    return files.sort((a, b) => {
+
+        const timeA =
+            a.querySelector("time")
+             .getAttribute("datetime");
+
+        const timeB =
+            b.querySelector("time")
+             .getAttribute("datetime");
+
+        return new Date(timeA) - new Date(timeB);
+
+    });
+
+}
+
+
+function getFilenameMessage() {
+
+    const files =
+        getChronologicalFiles();
+
+    return files.map(file => {
+
+        return file
+            .querySelector(".filename")
+            .textContent
+            .trim()
+            .charAt(0);
+
+    }).join("");
+
+}
+
+
+function getBinary() {
+
+    const files =
+        getChronologicalFiles();
+
+    return files.map(file => {
+
+        const name =
+            file
+                .querySelector(".filename")
+                .textContent
+                .trim();
+
+        const length =
+            name.length;
+
+        return length % 2 === 0
+            ? "0"
+            : "1";
+
+    }).join("");
+
+}
+
+
+function getFragment() {
+
+    const binary =
+        getBinary();
+
+    const decimal =
+        parseInt(binary, 2);
+
+    return String.fromCharCode(decimal);
+
+}
+
+
+function verify() {
+
+    const input =
+        document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+        document
+        .getElementById("result");
+
+
+    const sizes =
+        getSizes();
+
+    const sizeMessage =
+        numbersToLetters(sizes);
+
+
+    const filenameMessage =
+        getFilenameMessage();
+
+
+    const binary =
+        getBinary();
+
+
+    const fragment =
+        getFragment();
+
+
+    /*
+        FALSE TRAILS
+    */
+
+    if (input === "ARCHIVE") {
+
+        result.innerHTML =
+            "> THE ARCHIVE IS NOT THE ANSWER.";
+
+        return;
+    }
+
+
+    if (input === "FILES") {
+
+        result.innerHTML =
+            "> FILES ARE ONLY CONTAINERS.";
+
+        return;
+    }
+
+
+    /*
+        FIRST LAYER
+    */
+
+    if (input === sizeMessage) {
+
+        result.innerHTML =
+            "> YOU FOUND THE FIRST INSTRUCTION.<br>" +
+            "> IT DOES NOT TELL YOU WHAT TO TAKE.";
+
+        return;
+    }
+
+
+    /*
+        SECOND LAYER
+    */
+
+    if (input === "DATETIME") {
+
+        result.innerHTML =
+            "> TIME IS INFORMATION.<br>" +
+            "> THE ORDER YOU SEE IS NOT THE ORDER THEY HAVE.";
+
+        return;
+    }
+
+
+    /*
+        CHRONOLOGICAL FALSE TRAIL
+    */
+
+    if (input === "CHRONOLOGICAL") {
+
+        result.innerHTML =
+            "> CORRECT METHOD.<br>" +
+            "> WRONG RESULT.";
+
+        return;
+    }
+
+
+    /*
+        THIRD LAYER
+    */
+
+    if (input === filenameMessage) {
+
+        result.innerHTML =
+            "> FILENAME.<br>" +
+            "> THE WORD IS AN INSTRUCTION.";
+
+        return;
+    }
+
+
+    /*
+        FINAL INTERMEDIATE
+    */
+
+    if (input === "01010011") {
+
+        result.innerHTML =
+            "> EIGHT BITS.<br>" +
+            "> ONE CHARACTER.";
+
+        return;
+    }
+
+
+    /*
+        FINAL
+    */
+
+    if (input === fragment) {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 09 COMPLETE.<br><br>" +
+            '<span class="fragment">' +
+            'FRAGMENT: ' +
+            fragment +
+            '</span>';
+
+        setTimeout(() => {
+
+            window.location.href =
+                "../10/puzzle10.html";
+
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+
+}
+
+</script>
+
+</body>
+</html>

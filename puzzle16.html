@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL — 16</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #777;
+            font-family: monospace;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding-top: 120px;
+        }
+
+        h1 {
+            letter-spacing: 8px;
+            color: #aaa;
+        }
+
+        .error {
+            margin-top: 45px;
+            line-height: 2;
+        }
+
+        .secret {
+            position: absolute;
+            left: 73%;
+            top: 31%;
+            width: 8px;
+            height: 8px;
+            background: #050505;
+            cursor: pointer;
+        }
+
+        .secret:hover {
+            background: #090909;
+        }
+
+        #message {
+            display: none;
+            margin-top: 40px;
+            color: #aaa;
+            line-height: 2;
+        }
+
+        .input-area {
+            display: none;
+            margin-top: 35px;
+        }
+
+        input {
+            background: #080808;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 12px;
+            width: 240px;
+            font-family: monospace;
+            outline: none;
+        }
+
+        button {
+            background: #080808;
+            color: #aaa;
+            border: 1px solid #555;
+            padding: 12px 20px;
+            font-family: monospace;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border-color: #aaa;
+        }
+
+        #result {
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--
+    If you found this,
+    you already looked too closely.
+
+    There is no answer here.
+
+    Look at the page.
+    Not the source.
+
+    The numbers hidden inside the empty place are:
+
+    73 48 43 17 44 27
+
+    Do not treat them as letters.
+
+    THE EMPTY PLACE.
+    NOT THE LETTER.
+    THE REMAINDER.
+-->
+
+<div class="container">
+
+    <h1>PROJECT-NULL</h1>
+
+    <div class="error">
+        <p>PUZZLE 16</p>
+        <br>
+        <p>404</p>
+        <p>NOTHING TO SEE HERE.</p>
+    </div>
+
+</div>
+
+<div
+    class="secret"
+    onclick="reveal()"
+    title=""
+></div>
+
+<div
+    id="message"
+    style="
+        position: absolute;
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 80%;
+    "
+>
+    YOU FOUND THE EMPTY PLACE.
+    <br><br>
+    73 48 43 17 44 27
+    <br><br>
+    THE EMPTY PLACE.
+    <br>
+    NOT THE LETTER.
+    <br>
+    THE REMAINDER.
+
+    <div class="input-area" id="inputArea">
+        <input
+            type="text"
+            id="answer"
+            placeholder="ENTER ANSWER"
+            autocomplete="off"
+        >
+
+        <button onclick="checkAnswer()">
+            SUBMIT
+        </button>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<script>
+
+function reveal() {
+
+    document.getElementById("message").style.display = "block";
+
+    document.getElementById("inputArea").style.display = "block";
+}
+
+function checkAnswer() {
+
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (answer === "HIDDEN") {
+
+        document.getElementById("result").textContent =
+            "ACCESS GRANTED";
+
+        setTimeout(() => {
+            window.location.href = "../17/puzzle17.html";
+        }, 1000);
+
+    } else {
+
+        document.getElementById("result").textContent =
+            "ACCESS DENIED";
+    }
+}
+
+</script>
+
+</body>
+</html>

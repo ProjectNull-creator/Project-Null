@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 04</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #050505;
+            color: #d5d5d5;
+
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 90%;
+            max-width: 800px;
+
+            padding: 40px;
+
+            background: #080808;
+            border: 1px solid #292929;
+
+            box-shadow: 0 0 40px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+
+            color: #eee;
+
+            font-size: 28px;
+            letter-spacing: 5px;
+        }
+
+        .text {
+            color: #999;
+            line-height: 1.9;
+        }
+
+        .silence {
+            margin: 35px 0;
+            padding: 25px;
+
+            border-left: 1px solid #333;
+
+            color: #444;
+            line-height: 2.5;
+        }
+
+        input {
+            width: 100%;
+
+            margin-top: 15px;
+            padding: 14px;
+
+            background: #050505;
+            border: 1px solid #333;
+
+            color: #eee;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 12px;
+            padding: 14px;
+
+            background: #101010;
+            border: 1px solid #444;
+
+            color: #ccc;
+
+            font-family: inherit;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 50px;
+            margin-top: 25px;
+
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .nothing {
+            position: absolute;
+
+            width: 0;
+            height: 0;
+
+            overflow: hidden;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 04
+    </div>
+
+    <h1>SILENCE</h1>
+
+    <div class="text">
+
+        There is nothing to read.
+
+        <br><br>
+
+        Nothing has been hidden.
+
+        <br><br>
+
+        Nothing has been removed.
+
+        <br><br>
+
+        Maybe that is the point.
+
+    </div>
+
+    <div class="silence">
+        .
+        <br>
+        .
+        <br>
+        .
+        <br>
+        .
+        <br>
+        .
+        <br>
+        .
+        <br>
+        .
+        <br>
+        .
+        <br>
+        .
+    </div>
+
+    <div class="text">
+        [ ENTER WHAT YOU FOUND ]
+    </div>
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">VERIFY</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<div class="nothing" aria-hidden="true">
+
+​‌​​​​​​
+​‌​​​​​​​
+​‌​​​​​​​​​​​​
+​‌​​​
+​
+​​​​​​​​​​​​​​​​​​​​
+​​​​​​​​
+​​​​​
+​
+​​​​​​​
+​
+​
+​​​​​​​​​​​​​​​​
+​
+​​​​​​​​​​​​​​​​​​​​​​
+    
+</div>
+
+
+<div style="display:none">
+
+    <span>
+        &nbsp;
+    </span>
+
+    <span>
+        &ZeroWidthSpace;
+    </span>
+
+</div>
+
+
+<script>
+
+function verify() {
+
+    const input = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result = document
+        .getElementById("result");
+
+
+    if (input === "E") {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 04 COMPLETE.<br><br>" +
+            "<span>FRAGMENT: E</span>";
+
+        setTimeout(() => {
+            window.location.href = "../05/puzzle05.html";
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+}
+
+</script>
+
+</body>
+</html>

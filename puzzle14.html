@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL — 14</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #ccc;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            letter-spacing: 8px;
+        }
+
+        .numbers {
+            margin: 50px 0;
+            font-size: 25px;
+            letter-spacing: 5px;
+            line-height: 2.5;
+        }
+
+        .hint {
+            color: #555;
+            line-height: 2;
+            margin-bottom: 40px;
+        }
+
+        input {
+            background: #080808;
+            border: 1px solid #555;
+            color: #fff;
+            padding: 12px;
+            width: 250px;
+            font-family: monospace;
+            outline: none;
+        }
+
+        button {
+            background: #080808;
+            color: #aaa;
+            border: 1px solid #555;
+            padding: 12px 20px;
+            font-family: monospace;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border-color: #aaa;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--
+    The witness saw the first.
+    The witness saw the last.
+    Never trust the middle.
+
+    14
+
+    Take the distance between what was first
+    and what was last.
+-->
+
+<div class="container">
+
+    <h1>PROJECT-NULL</h1>
+
+    <p>PUZZLE 14</p>
+
+    <div class="numbers">
+        20 — 6<br>
+        25 — 4<br>
+        19 — 7<br>
+        23 — 11
+    </div>
+
+    <div class="hint">
+        I SAW THE FIRST.<br>
+        I SAW THE LAST.<br>
+        I SAW WHAT WAS NEVER THERE.
+        <br><br>
+        THE WITNESS NEVER SPEAKS.
+    </div>
+
+    <input
+        type="text"
+        id="answer"
+        placeholder="ENTER ANSWER"
+        autocomplete="off"
+    >
+
+    <button onclick="checkAnswer()">SUBMIT</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function checkAnswer() {
+
+    const answer = document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (answer === "NULL") {
+
+        document.getElementById("result").textContent =
+            "ACCESS GRANTED";
+
+        setTimeout(() => {
+            window.location.href = "../15/puzzle14.html";
+        }, 1000);
+
+    } else {
+
+        document.getElementById("result").textContent =
+            "ACCESS DENIED";
+    }
+}
+
+</script>
+
+</body>
+</html>

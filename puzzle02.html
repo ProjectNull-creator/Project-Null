@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 02</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #050505;
+            color: #d6d6d6;
+
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 90%;
+            max-width: 820px;
+
+            padding: 40px;
+
+            background: #080808;
+            border: 1px solid #292929;
+
+            box-shadow: 0 0 40px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+
+            color: #eee;
+
+            font-size: 28px;
+            letter-spacing: 5px;
+        }
+
+        .text {
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .cipher {
+            margin: 35px 0;
+
+            padding: 20px;
+
+            border-left: 2px solid #444;
+
+            color: #eee;
+            line-height: 1.8;
+
+            user-select: text;
+        }
+
+        .quiet {
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+
+            margin-top: 10px;
+            padding: 14px;
+
+            background: #050505;
+            border: 1px solid #333;
+
+            color: #eee;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 12px;
+            padding: 14px;
+
+            background: #101010;
+            border: 1px solid #444;
+
+            color: #ccc;
+
+            font-family: inherit;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 50px;
+            margin-top: 25px;
+
+            color: #777;
+
+            line-height: 1.7;
+        }
+
+        .fragment {
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 02
+    </div>
+
+    <h1>YOU ALREADY SAW IT</h1>
+
+    <div class="text">
+
+        Nothing here is new.
+        <br>
+
+        You have already seen
+        everything you need.
+
+    </div>
+
+    <div class="cipher">
+
+        QEB NRFZH YOLTK CLU GRJMP LSBO
+        <br>
+        QEB IXWV ALD
+
+    </div>
+
+    <div class="text">
+
+        You are looking for an answer.
+
+    </div>
+
+    <br>
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">VERIFY</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<!--
+    NOTHING HERE IS NEW.
+
+    -- --- .-. ... .
+    
+    THIS IS NOT THE MESSAGE.
+
+    ..-. .- .-.. ... .
+
+    -------------------------
+
+    .-. . .- -..
+
+    - .... . / -.-. --- -.. .
+
+    -------------------------
+
+    THE LETTERS ARE NOT WHERE
+    YOU THINK THEY ARE.
+
+    -------------------------
+
+    <span class="quiet">N</span>
+
+    <span class="quiet">O</span>
+
+    <span class="quiet">T</span>
+
+    <span class="quiet">H</span>
+
+    <span class="quiet">I</span>
+
+    <span class="quiet">N</span>
+
+    <span class="quiet">G</span>
+
+    -------------------------
+
+    - SYSTEM
+-->
+
+
+<!--
+    LAYER 3 DATA
+
+    READ BETWEEN
+
+    The important letters are placed between
+    unrelated elements in the document.
+
+    Do not simply search for the word.
+-->
+
+
+<script>
+
+/*
+==========================================================
+LAYER 1
+==========================================================
+
+QEB NRFZH YOLTK CLU GRJMP LSBO
+QEB IXWV ALD
+
+Caesar shift -3:
+
+THE QUICK BROWN FOX JUMPS OVER
+THE LAZY DOG
+*/
+
+
+/*
+==========================================================
+LAYER 2
+==========================================================
+
+The pangram contains every letter of the alphabet.
+
+The player should notice that the sentence itself
+is unusually complete.
+
+The source then contains Morse.
+
+First Morse:
+
+-- --- .-. ... .
+= MORSE
+
+But MORSE is only an instruction.
+*/
+
+
+/*
+==========================================================
+LAYER 3
+==========================================================
+
+Second Morse:
+
+.-. . .- -..
+
+- .... .
+
+-.-. --- -..
+
+READ THE CODE
+
+However, this is intentionally misleading.
+
+The source also contains:
+
+THE LETTERS ARE NOT WHERE
+YOU THINK THEY ARE.
+
+The player must inspect the structure itself.
+*/
+
+
+function verify() {
+
+    const input =
+        document.getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+        document.getElementById("result");
+
+
+    /*
+    First obvious solution.
+    */
+
+    if (
+        input ===
+        "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"
+    ) {
+
+        result.innerHTML =
+            "> CORRECT SENTENCE.<br>" +
+            "> WRONG QUESTION.<br>" +
+            "> WHY THIS SENTENCE?";
+
+        return;
+    }
+
+
+    /*
+    Morse discovery.
+    */
+
+    if (input === "MORSE") {
+
+        result.innerHTML =
+            "> YOU FOUND THE METHOD.<br>" +
+            "> THE METHOD IS NOT THE ANSWER.";
+
+        return;
+    }
+
+
+    /*
+    False Morse.
+    */
+
+    if (input === "FALSE") {
+
+        result.innerHTML =
+            "> YOU FOUND SOMETHING.<br>" +
+            "> IT WAS MEANT TO BE FOUND.<br>" +
+            "> CONTINUE.";
+
+        return;
+    }
+
+
+    /*
+    Second instruction.
+    */
+
+    if (input === "READ THE CODE") {
+
+        result.innerHTML =
+            "> YOU READ IT.<br>" +
+            "> YOU DID NOT SEE IT.";
+
+        return;
+    }
+
+
+    /*
+    The actual structural answer.
+
+    The player should eventually realize that the
+    apparently useless letters in the source form:
+
+    NOTHING
+
+    But even this is not accepted as the final answer.
+
+    Instead it acts as a confirmation that the player
+    has understood the structural layer.
+    */
+
+    if (input === "NOTHING") {
+
+        result.innerHTML =
+            "> ABSENCE CONFIRMED.<br>" +
+            "> STRUCTURE ACCEPTED.<br>" +
+            "> ONE THING REMAINS.";
+
+        return;
+    }
+
+
+    /*
+    FINAL NODE 02 ANSWER
+
+    The hidden structural letters are intended to
+    ultimately point toward N.
+
+    This is the fragment carried forward.
+    */
+
+    if (input === "N") {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 02 COMPLETE.<br><br>" +
+            '<span class="fragment">FRAGMENT: N</span>';
+
+        setTimeout(() => {
+
+            window.location.href =
+                "../03/puzzle03.html";
+
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+
+}
+
+</script>
+
+</body>
+</html>

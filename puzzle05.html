@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROJECT-NULL // NODE 05</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #050505;
+            color: #d8d8d8;
+
+            font-family: "Courier New", monospace;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            width: 90%;
+            max-width: 850px;
+
+            padding: 40px;
+
+            background: #080808;
+            border: 1px solid #292929;
+
+            box-shadow: 0 0 40px rgba(255,255,255,0.025);
+        }
+
+        .system {
+            color: #555;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0 0 35px;
+
+            color: #eee;
+
+            font-size: 28px;
+            letter-spacing: 5px;
+        }
+
+        .text {
+            color: #999;
+            line-height: 1.9;
+        }
+
+        .mirror {
+            margin: 35px 0;
+            padding: 30px;
+
+            border: 1px solid #222;
+
+            text-align: center;
+        }
+
+        .glass {
+            margin: 14px auto;
+            padding: 15px;
+
+            width: 80%;
+
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+
+            color: #666;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+        .glass:hover {
+            color: #aaa;
+        }
+
+        .reversed {
+            direction: rtl;
+            unicode-bidi: bidi-override;
+        }
+
+        .mark {
+            color: #333;
+            font-size: 11px;
+        }
+
+        input {
+            width: 100%;
+
+            margin-top: 15px;
+            padding: 14px;
+
+            background: #050505;
+            border: 1px solid #333;
+
+            color: #eee;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #777;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 12px;
+            padding: 14px;
+
+            background: #101010;
+            border: 1px solid #444;
+
+            color: #ccc;
+
+            font-family: inherit;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        #result {
+            min-height: 60px;
+
+            margin-top: 25px;
+
+            color: #777;
+
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="terminal">
+
+    <div class="system">
+        PROJECT-NULL // NODE 05
+    </div>
+
+    <h1>MIRROR</h1>
+
+    <div class="text">
+
+        Some things become readable
+        only when you stop reading them.
+
+        <br><br>
+
+        The reflection is not the thing.
+
+    </div>
+
+    <div class="mirror">
+
+        <div class="glass reversed">
+            NOITCELFER
+        </div>
+
+        <div class="glass reversed">
+            REDRO
+        </div>
+
+        <div class="glass reversed">
+            ECALP
+        </div>
+
+        <div class="glass reversed">
+            KCART
+        </div>
+
+        <div class="glass reversed">
+            DNE
+        </div>
+
+        <div class="mark">
+            ◇ ◇ ◇ ◇ ◇
+        </div>
+
+    </div>
+
+    <div class="text">
+
+        You have seen the answer.
+
+        <br><br>
+
+        But seeing it is not the same
+        as understanding it.
+
+    </div>
+
+    <br>
+
+    <input
+        id="answer"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+    >
+
+    <button onclick="verify()">VERIFY</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<!--
+    .NOITCELFER
+    .REDRO
+    .ECALP
+    .KCART
+    .DNE
+
+    .sdrawkcab
+-->
+
+
+<div hidden
+    data-a="18"
+    data-b="5"
+    data-c="16"
+    data-d="12"
+    data-e="1">
+</div>
+
+
+<script>
+
+function verify() {
+
+    const input =
+        document
+        .getElementById("answer")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+        document
+        .getElementById("result");
+
+
+    /*
+        First layer.
+        Reflection of the first visible word.
+    */
+
+    if (input === "REFLECTION") {
+
+        result.innerHTML =
+            "> YOU FOUND THE REFLECTION.<br>" +
+            "> THAT WAS THE EASY SIDE.";
+
+        return;
+    }
+
+
+    /*
+        Deliberate false answers.
+    */
+
+    if (input === "ORDER") {
+
+        result.innerHTML =
+            "> ORDER EXISTS.<br>" +
+            "> YOU HAVE NOT FOUND IT.";
+
+        return;
+    }
+
+
+    if (input === "BACKWARDS") {
+
+        result.innerHTML =
+            "> DIRECTION CONFIRMED.<br>" +
+            "> SOMETHING IS STILL WRONG.";
+
+        return;
+    }
+
+
+    /*
+        The five visible words become:
+
+        REFLECTION
+        ORDER
+        PLACE
+        TRACK
+        END
+
+        Their meanings form a chain.
+
+        REFLECTION
+             ↓
+        ORDER
+             ↓
+        PLACE
+             ↓
+        TRACK
+             ↓
+        END
+
+        The player must stop treating them
+        as five independent answers.
+    */
+
+    if (input === "REFLECTION ORDER PLACE TRACK END") {
+
+        result.innerHTML =
+            "> TOO LITERAL.<br>" +
+            "> YOU ARE READING THEM IN THE WRONG DIRECTION.";
+
+        return;
+    }
+
+
+    /*
+        Final answer.
+    */
+
+    if (input === "R") {
+
+        result.innerHTML =
+            "> ACCESS GRANTED.<br>" +
+            "> NODE 05 COMPLETE.<br><br>" +
+            "FRAGMENT: R";
+
+        setTimeout(() => {
+            window.location.href =
+                "../06/puzzle06.html";
+        }, 2500);
+
+        return;
+    }
+
+
+    result.innerHTML =
+        "> ACCESS DENIED.";
+}
+
+</script>
+
+</body>
+</html>
