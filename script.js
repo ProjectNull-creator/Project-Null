@@ -1,3 +1,3 @@
 function startGame() {
-    window.location.href = "index.html";
+    window.location.href = "puzzle01.html";
 }
